@@ -1,8 +1,8 @@
-# Your Name Here
+# Daniel Keuning
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section:
+# 11/5/2024
+# Lab 08
+# Lab Section: 11
 # Sources, people worked with, help given to:
 # your
 # comments
@@ -14,6 +14,19 @@
 # Other wise return the converted int or float 
 # Floats should only have one decimal point in them 
 
+string_input = input("Input String: ")
+
+def check(string):
+    if string == int or string == float:
+        return True
+    else:
+        try:
+            string = round(float(string), 2)
+            return True
+        except:
+            return False
+
+print(check(string_input))
 
 print("*" * 75)
 
@@ -37,6 +50,24 @@ print("*" * 75)
 # Exit on the word exit
 # Remember all inputs are strings, but the function needs ints or floats
 # Call your function and print the resulting list
+
+def slope_formula():
+    slope = int(input("Enter slope. "))
+    intercept = int(input("Enter Y-intercept. "))
+    x_lower = int(input("Lower x bound: "))
+    x_upper = int(input("Upper x bound: "))
+
+    list = []
+
+
+    while x_lower <= x_upper:
+        y = slope * x_lower + intercept
+        x_lower += 1
+        list.append(y)
+    
+    return(list)
+
+print(slope_formula())
 
 print("*" * 75)
 
