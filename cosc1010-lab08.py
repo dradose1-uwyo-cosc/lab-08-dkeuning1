@@ -79,3 +79,15 @@ print("*" * 75)
 # Create a loop like above to prompt the user for input for the three values
 # Create a second function that just does the square root operation 
     # If the number you are trying to take the square root of is negative, return null
+
+while True:
+    a = input("Enter A: ")
+    b = input("Enter B: ")
+    c = input("Enter C: ")
+
+def quadratic_formula (a, b, c):
+    x = y+x
+    return x
+
+
+
