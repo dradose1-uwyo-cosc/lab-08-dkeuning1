@@ -4,10 +4,8 @@
 # Lab 08
 # Lab Section: 11
 # Sources, people worked with, help given to:
-# your
-# comments
-# here
-
+#   - Used openstax to find copy and paste the quadratic formula
+#   - Used ChatGPT to check if the solutions were correct
 
 # Write a function that will properly check strings to see if they are an int or float, and convert them if so
 # If they can't be converted return false
@@ -52,10 +50,12 @@ print("*" * 75)
 # Call your function and print the resulting list
 
 def slope_formula():
-    slope = int(input("Enter slope. "))
-    intercept = int(input("Enter Y-intercept. "))
-    x_lower = int(input("Lower x bound: "))
-    x_upper = int(input("Upper x bound: "))
+    while True:
+        slope = int(input("Enter slope. "))
+        intercept = int(input("Enter Y-intercept. "))
+        x_lower = int(input("Lower x bound: "))
+        x_upper = int(input("Upper x bound: "))
+        break
 
     list = []
 
@@ -80,14 +80,23 @@ print("*" * 75)
 # Create a second function that just does the square root operation 
     # If the number you are trying to take the square root of is negative, return null
 
+import math
+
 while True:
-    a = input("Enter A: ")
-    b = input("Enter B: ")
-    c = input("Enter C: ")
+    a = float(input("Enter A: "))
+    b = float(input("Enter B: "))
+    c = float(input("Enter C: "))
+    break
 
 def quadratic_formula (a, b, c):
-    x = y+x
-    return x
+    discriminant = b**2 - 4*a*c
+    if discriminant < 0:
+        return "Null"
+    else:
+        x1 = round((-b+math.sqrt(b**2-4*a*c))/(2*a), 2)
+        x2 = round((-b-math.sqrt(b**2 - 4*a*c))/(2*a), 2)
+        return x1, x2
 
+answer = quadratic_formula(a, b, c)
 
-
+print(f"Solutions: {answer}")
