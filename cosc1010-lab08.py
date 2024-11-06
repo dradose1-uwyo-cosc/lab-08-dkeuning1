@@ -12,7 +12,6 @@
 # Other wise return the converted int or float 
 # Floats should only have one decimal point in them 
 
-string_input = input("Input String: ")
 
 def check(string):
     if string == int or string == float:
@@ -24,7 +23,14 @@ def check(string):
         except:
             return False
 
-print(check(string_input))
+def is_float(value):
+    try:
+        float(value)
+        return True
+    except ValueError:
+        return False
+
+
 
 print("*" * 75)
 
@@ -49,16 +55,9 @@ print("*" * 75)
 # Remember all inputs are strings, but the function needs ints or floats
 # Call your function and print the resulting list
 
-def slope_formula():
-    while True:
-        slope = int(input("Enter slope. "))
-        intercept = int(input("Enter Y-intercept. "))
-        x_lower = int(input("Lower x bound: "))
-        x_upper = int(input("Upper x bound: "))
-        break
 
+def slope_formula(slope, intercept, x_upper, x_lower):
     list = []
-
 
     while x_lower <= x_upper:
         y = slope * x_lower + intercept
@@ -67,7 +66,42 @@ def slope_formula():
     
     return(list)
 
-print(slope_formula())
+while True:
+    print("Type 'exit' to quit.")
+    slope = (input("Enter slope. "))
+    if slope == "exit":
+        break
+    intercept = (input("Enter Y-intercept. "))
+    if intercept == 'exit':
+        break
+    x_lower = (input("Lower x bound: "))
+    if x_lower == 'exit':
+        break
+    x_upper = (input("Upper x bound: "))
+    if x_upper == 'exit':
+        break
+    if is_float(x_lower) is False or is_float(x_upper) is False:
+        print("ERROR: Please enter valid numbers.")
+    elif check(slope) is False or check(intercept) is False:
+        print("ERROR. Please enter valid numbers.")
+    elif x_lower > x_upper:
+        print("ERROR. Please try again.")
+    else:
+        break
+try:
+    slope = float(slope)
+    intercept = float(intercept)
+    x_lower = int(float(x_lower))
+    x_upper = int(float(x_upper))
+
+    if x_lower > x_upper:
+        print("ERROR. Lower bound cannot be higher than upper bound.")
+
+    print(f"Answers: {slope_formula(slope, intercept, x_upper, x_lower)}")
+
+except ValueError:
+    print("ERROR. Please try again.")
+
 
 print("*" * 75)
 
@@ -82,12 +116,6 @@ print("*" * 75)
 
 import math
 
-while True:
-    a = float(input("Enter A: "))
-    b = float(input("Enter B: "))
-    c = float(input("Enter C: "))
-    break
-
 def quadratic_formula (a, b, c):
     discriminant = b**2 - 4*a*c
     if discriminant < 0:
@@ -96,6 +124,13 @@ def quadratic_formula (a, b, c):
         x1 = round((-b+math.sqrt(b**2-4*a*c))/(2*a), 2)
         x2 = round((-b-math.sqrt(b**2 - 4*a*c))/(2*a), 2)
         return x1, x2
+
+while True:
+    a = int(input("Enter A: "))
+    b = int(input("Enter B: "))
+    c = int(input("Enter C: "))
+    break
+
 
 answer = quadratic_formula(a, b, c)
 
